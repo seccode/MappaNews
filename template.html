@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mappa News</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+	mapboxgl.accessToken='pk.eyJ1Ijoic2VjZmFzdCIsImEiOiJjanVlbGRxbTUwNGVlNDlwcXRxNnFhYnlzIn0.-dc9uxSNW4TUYbC96E8zjA';
+    const map=new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        zoom: 5,
+	center: [-74.5,40]
+    });
+
+    const images = {
+        'popup': 'https://docs.mapbox.com/mapbox-gl-js/assets/popup.png',
+    };
+
+    loadImages(images, (loadedImages) => {
+        map.on('load', () => {
+            map.addImage('popup', loadedImages['popup'], {
+                stretchX: [
+                    [25, 55],
+                    [85, 115]
+                ],
+                stretchY: [[25, 100]],
+                content: [25, 25, 115, 100],
+                pixelRatio: 2
+            });
+
+            map.addSource('points', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C0
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U0,
+                                'name': S0
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C1
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U1,
+                                'name': S1
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C2
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U2,
+                                'name': S2
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C3
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U3,
+                                'name': S3
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C4
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U4,
+                                'name': S4
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C5
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U5,
+                                'name': S5
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C6
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U6,
+                                'name': S6
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C7
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U7,
+                                'name': S7
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C8
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U8,
+                                'name': S8
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C9
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U9,
+                                'name': S9
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C10
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U10,
+                                'name': S10
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C11
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U11,
+                                'name': S11
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C12
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U12,
+                                'name': S12
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': C13
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': U13,
+                                'name': S13
+                            }
+                        },
+                    ]
+                }
+            });
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'points',
+                'layout': {
+                    'text-field': ['get', 'name'],
+                    'icon-text-fit': 'both',
+                    'icon-image': ['get', 'image-name'],
+                    'icon-allow-overlap': true,
+                    'text-allow-overlap': false
+                }
+            });
+	    map.on('click', 'points', (e) => {
+		const description = e.features[0].properties.description;
+		window.open(description,"_blank").focus();
+	    });
+
+	    map.on('mouseenter', 'points', () => {
+	        map.getCanvas().style.cursor = 'pointer'
+	    })
+	    map.on('mouseleave', 'points', () => {
+	        map.getCanvas().style.cursor = ''
+	    })
+        });
+    });
+
+    function loadImages(urls, callback) {
+        const results = {};
+        for (const name in urls) {
+            map.loadImage(urls[name], makeCallback(name));
+        }
+
+        function makeCallback(name) {
+            return (err, image) => {
+                results[name] = err ? null : image;
+
+                // if all images are loaded, call the callback
+                if (Object.keys(results).length === Object.keys(urls).length) {
+                    callback(results);
+                }
+            };
+        }
+    }
+</script>
+
+</body>
+</html>

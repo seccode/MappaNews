@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mappa News</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+	mapboxgl.accessToken='pk.eyJ1Ijoic2VjZmFzdCIsImEiOiJjanVlbGRxbTUwNGVlNDlwcXRxNnFhYnlzIn0.-dc9uxSNW4TUYbC96E8zjA';
+    const map=new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        zoom: 5,
+	center: [-74.5,40]
+    });
+
+    const images = {
+        'popup': 'https://docs.mapbox.com/mapbox-gl-js/assets/popup.png',
+    };
+
+    loadImages(images, (loadedImages) => {
+        map.on('load', () => {
+            map.addImage('popup', loadedImages['popup'], {
+                stretchX: [
+                    [25, 55],
+                    [85, 115]
+                ],
+                stretchY: [[25, 100]],
+                content: [25, 25, 115, 100],
+                pixelRatio: 2
+            });
+
+            map.addSource('points', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-74.0059728,40.7127753]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.cnbc.com/2023/01/24/stock-market-news-live-updates-futures-open-to-close.html",
+                                'name': "Dow tumbles more tha..."
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-77.0368707,38.9071923]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.cnn.com/2023/01/25/politics/donald-trump-mike-pence-joe-biden-classified-documents/index.html",
+                                'name': "Trump and Biden team..."
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [13.404954,52.52000659999999]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.cnn.com/2023/01/25/europe/german-tanks-ukraine-intl/index.html",
+                                'name': "Germany approves lon..."
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-97.10806559999999,32.735687]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.cnn.com/2023/01/25/investing/boeing-results/index.html",
+                                'name': "Boeing posts a big l..."
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-115.1391009,36.171563]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://news.google.com/__i/rss/rd/articles/CBMiTmh0dHBzOi8vd3d3LmthbnNhc2NpdHkuY29tL3Nwb3J0cy9uZmwva2Fuc2FzLWNpdHktY2hpZWZzL2FydGljbGUyNzE1OTA3MDcuaHRtbNIBTmh0dHBzOi8vYW1wLmthbnNhc2NpdHkuY29tL3Nwb3J0cy9uZmwva2Fuc2FzLWNpdHktY2hpZWZzL2FydGljbGUyNzE1OTA3MDcuaHRtbA?oc=5",
+                                'name': "Chiefs-Bengals betti..."
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-118.2436849,34.0522342]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.cnn.com/2023/01/25/entertainment/paris-hilton-first-baby-announcement-intl-scli/index.html",
+                                'name': "Paris Hilton and Car..."
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-74.92432099999999,42.7006303]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.espn.com/mlb/story/_/id/35519454/why-scott-rolen-voted-baseball-hall-fame",
+                                'name': "Why Scott Rolen is h..."
+                            },
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [77.2090212,28.6139391]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.reuters.com/world/india/defiant-indian-students-hold-more-screenings-bbc-documentary-modi-2023-01-25/",
+                                'name': "Defiant Indian stude..."
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [127.766922,35.907757]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.sammobile.com/news/galaxy-s23-ultra-8k-30fps-4k-60fps-video-samples-leak/",
+                                'name': "Galaxy S23 Ultra's 8..."
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-118.78368490000001,34.828234200000004]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://ktla.com/news/local-news/4-2-magnitude-earthquake-hits-southern-california-epicenter-off-the-coast-of-los-angeles/",
+                                'name': "4.2 magnitude earthq..."
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-73.8139728,40.4927753]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://scitechdaily.com/covid-toll-big-jump-in-cardiovascular-related-deaths-reported-by-american-heart-association/",
+                                'name': "COVID Toll: Big Jump..."
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [128.184922,35.485757]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.sammobile.com/news/usa-carrier-locked-galaxy-z-fold-2-android-13-update/",
+                                'name': "Samsung Galaxy Z Fol..."
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-122.3320708,47.6062095]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.engadget.com/microsoft-services-go-down-across-the-world-092000674.html",
+                                'name': "Microsoft services i..."
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-74.6459728,41.0687753]
+                            },
+                            'properties': {
+                                'image-name': 'popup',
+				'description': "https://www.independent.co.uk/news/world/americas/us-politics/trump-imminent-fani-willis-pence-documents-b2268770.html",
+                                'name': "Trump news today: DA..."
+                            }
+                        },
+                    ]
+                }
+            });
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'points',
+                'layout': {
+                    'text-field': ['get', 'name'],
+                    'icon-text-fit': 'both',
+                    'icon-image': ['get', 'image-name'],
+                    'icon-allow-overlap': true,
+                    'text-allow-overlap': false
+                }
+            });
+	    map.on('click', 'points', (e) => {
+		const description = e.features[0].properties.description;
+		window.open(description,"_blank").focus();
+	    });
+
+	    map.on('mouseenter', 'points', () => {
+	        map.getCanvas().style.cursor = 'pointer'
+	    })
+	    map.on('mouseleave', 'points', () => {
+	        map.getCanvas().style.cursor = ''
+	    })
+        });
+    });
+
+    function loadImages(urls, callback) {
+        const results = {};
+        for (const name in urls) {
+            map.loadImage(urls[name], makeCallback(name));
+        }
+
+        function makeCallback(name) {
+            return (err, image) => {
+                results[name] = err ? null : image;
+
+                // if all images are loaded, call the callback
+                if (Object.keys(results).length === Object.keys(urls).length) {
+                    callback(results);
+                }
+            };
+        }
+    }
+</script>
+
+</body>
+</html>
